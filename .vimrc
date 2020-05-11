@@ -38,6 +38,7 @@ set go-=T
 set go-=m
 set go-=L
 set go-=r
+set ignorecase
 set smartcase
 set cb=unnamedplus
 set hidden
