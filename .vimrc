@@ -79,6 +79,7 @@ imap <S-tab> <C-n>
 nmap <leader>e yy:<C-r>"<Bs><CR>
 imap <S-space> _
 nnoremap <leader>] o{<cr>}<esc>O
+nnoremap gb :ls<cr>:b<space>
 
 function! GetCharUnderCursor()
     return matchstr(getline('.'), '\%' . col('.') . 'c.')
