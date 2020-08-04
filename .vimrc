@@ -74,7 +74,7 @@ nnoremap ds# mq?#if<cr>dd/#endif<cr>dd`q
 nnoremap <leader>= ^f=mqkyt=jPv`qr<space>
 nnoremap <leader>c ocase X:<esc>==o{<cr>} break;<esc>V?X<cr>j<?X<cr>s
 nnoremap <leader>t :!ctags -R<CR>
-iabbrev \t TODO(piotr):
+inoremap <c-t> TODO(piotr): 
 imap <tab> <C-p>
 imap <S-tab> <C-n>
 nmap <leader>e yy:<C-r>"<Bs><CR>
