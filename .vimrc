@@ -1,7 +1,13 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+    if has('win32')
+        silent !curl -fLo ~/vimfiles/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source ~/_vimrc
+    else
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+    endif
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -9,9 +15,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'gaving/vim-textobj-argument'
+Plug 'rluba/jai.vim'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 syntax on
 filetype plugin indent on
@@ -122,7 +128,7 @@ onoremap if :<c-u>call SelectSmallWord()<cr>
 function! AlignAssignmetsInsideV()
     execute "normal '<"
     let EqualsPositions = []
-      while line('.') <= line("'>")
+    while line('.') <= line("'>")
         let EqualsPositions += [match(getline("."), "=")]
         normal j
     endwhile
