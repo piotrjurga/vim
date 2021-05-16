@@ -18,6 +18,8 @@ Plug 'tpope/vim-repeat'
 Plug 'gaving/vim-textobj-argument'
 Plug 'rluba/jai.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 syntax on
 filetype plugin indent on
@@ -48,6 +50,7 @@ set go-=r
 "set smartcase
 set cb=unnamedplus
 set hidden
+set nohlsearch
 
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
@@ -86,7 +89,6 @@ imap <S-tab> <C-n>
 nmap <leader>e yy:<C-r>"<Bs><CR>
 imap <S-space> _
 nnoremap <leader>] o{<cr>}<esc>O
-nnoremap gb :ls<cr>:b<space>
 
 function! GetCharUnderCursor()
     return matchstr(getline('.'), '\%' . col('.') . 'c.')
@@ -165,3 +167,7 @@ nnoremap <c-h> :tabp<cr>
 nnoremap ń /^[^ \t]<cr>
 nnoremap H ^
 nnoremap L $
+
+" fzf bindings
+"nnoremap gb :ls<cr>:b<space>
+nnoremap gb :Buffer<cr>
