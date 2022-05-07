@@ -18,8 +18,8 @@ Plug 'tpope/vim-repeat'
 Plug 'gaving/vim-textobj-argument'
 Plug 'rluba/jai.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 call plug#end()
 syntax on
 filetype plugin indent on
@@ -154,6 +154,8 @@ vmap gs "ty:%s/\V<c-r>t//g<left><left>
 nmap <leader>p :w<cr>:!python %<cr>
 nmap <leader>l :w<cr>:!pdflatex %<cr>
 
+nnoremap <leader>d :cd %:p:h<cr>:pwd<cr>
+
 nnoremap [[ [{
 nnoremap ]] ]}
 
@@ -169,5 +171,5 @@ nnoremap H ^
 nnoremap L $
 
 " fzf bindings
-"nnoremap gb :ls<cr>:b<space>
-nnoremap gb :Buffer<cr>
+nnoremap gb :ls<cr>:b<space>
+"nnoremap gb :Buffer<cr>
